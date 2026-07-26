@@ -46,6 +46,7 @@
 }
 .navbar-links {
   display: flex;
+  align-items: center;
   gap: 0.4rem;
   margin-inline: auto;
 }
@@ -92,16 +93,17 @@
 .nav-solutions-trigger[aria-expanded='true'] .nav-solutions-chevron {
   transform: rotate(180deg);
 }
+/* Sits flush against the trigger (top: 100%, no gap) so the pointer never
+   crosses empty space — that would end up over a non-descendant element
+   and fire mouseleave before it reaches the panel. The visual gap is
+   created by padding-top on this element instead, which keeps the whole
+   bridge part of the same hoverable box. */
 .nav-solutions-panel {
   position: absolute;
-  top: calc(100% + 14px);
+  top: 100%;
   left: 50%;
   min-width: 200px;
-  padding: 0.4rem;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
+  padding-top: 14px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -116,6 +118,14 @@
   visibility: visible;
   pointer-events: auto;
   transform: translate(-50%, 0);
+}
+.nav-solutions-card {
+  min-width: 200px;
+  padding: 0.4rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
 }
 .nav-solutions-item {
   display: flex;

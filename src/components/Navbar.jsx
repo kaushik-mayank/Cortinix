@@ -111,18 +111,20 @@ export default function Navbar() {
               <ChevronDown size={14} className="nav-solutions-chevron" aria-hidden="true" />
             </button>
             <div className={`nav-solutions-panel ${solutionsOpen ? 'is-open' : ''}`}>
-              {SOLUTIONS.map((s) => (
-                <a
-                  key={s.name}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="nav-solutions-item"
-                >
-                  {s.name}
-                  <ArrowUpRight size={14} aria-hidden="true" />
-                </a>
-              ))}
+              <div className="nav-solutions-card">
+                {SOLUTIONS.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-solutions-item"
+                  >
+                    {s.name}
+                    <ArrowUpRight size={14} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
             </div>
           </li>
 
