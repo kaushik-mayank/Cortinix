@@ -29,10 +29,10 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.5);
+    box-shadow: 0 0 0 0 rgba(20, 51, 92, 0.35);
   }
   50% {
-    box-shadow: 0 0 36px 6px rgba(108, 99, 255, 0.35);
+    box-shadow: 0 0 28px 4px rgba(20, 51, 92, 0.22);
   }
 }
 
@@ -83,55 +83,40 @@
   }
 }
 
-/* ── Glow / magnetic button ────────────────────────────── */
+/* ── Primary / ghost button ─────────────────────────────── */
 .glow-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.85rem 1.5rem;
+  padding: 0.85rem 1.6rem;
   border-radius: var(--radius-pill);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--fs-base);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   color: #fff;
-  background: var(--gradient-brand);
-  background-size: 180% 180%;
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+  background: var(--accent-1);
+  border: 1px solid var(--accent-1);
+  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
   will-change: transform;
   isolation: isolate;
 }
-.glow-btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: var(--gradient-brand);
-  filter: blur(18px);
-  opacity: 0;
-  z-index: -1;
-  transition: opacity var(--dur) var(--ease-out);
-}
 .glow-btn:hover {
   transform: translateY(-2px);
-  animation: gradient-pan 3s ease infinite;
-}
-.glow-btn:hover::after {
-  opacity: 0.6;
+  background: #0d2544;
+  box-shadow: var(--glow-violet);
 }
 .glow-btn.ghost {
   background: transparent;
   color: var(--text-primary);
   border: 1px solid var(--border);
 }
-.glow-btn.ghost::after {
-  display: none;
-}
 .glow-btn.ghost:hover {
   border-color: var(--accent-1);
   background: var(--accent-1-soft);
-  animation: none;
+  box-shadow: none;
 }
 .glow-btn .icon {
   transition: transform var(--dur) var(--ease-out);
@@ -140,12 +125,7 @@
   transform: translateX(3px);
 }
 
-/* ── Animated conic gradient border (featured cards) ───── */
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
+/* ── Featured-card border (static, brand-accent) ───────── */
 .gradient-border {
   position: relative;
   border-radius: var(--radius);
@@ -156,19 +136,16 @@
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: conic-gradient(
-    from var(--angle),
-    var(--accent-1),
-    var(--accent-2),
-    var(--accent-3),
-    var(--accent-1)
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--card-accent, var(--accent-1)) 55%, transparent),
+    transparent 65%
   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: border-rotate 6s linear infinite;
   pointer-events: none;
 }
 
@@ -221,64 +198,6 @@
 @keyframes word-rise {
   to {
     transform: translateY(0);
-  }
-}
-
-/* ── Custom glow cursor ────────────────────────────────── */
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  border-radius: 50%;
-  mix-blend-mode: screen;
-  opacity: 1;
-  transition: opacity 0.2s var(--ease-out);
-}
-/* Hidden when the pointer leaves the window or the tab loses focus. */
-.cursor-dot.is-hidden,
-.cursor-ring.is-hidden {
-  opacity: 0;
-}
-.cursor-dot {
-  width: 7px;
-  height: 7px;
-  background: var(--accent-2);
-  transform: translate(-50%, -50%);
-}
-.cursor-ring {
-  width: 34px;
-  height: 34px;
-  border: 1.5px solid var(--accent-1);
-  transform: translate(-50%, -50%);
-  transition: width 0.25s var(--ease-out), height 0.25s var(--ease-out),
-    border-color 0.25s var(--ease-out), background 0.25s var(--ease-out),
-    opacity 0.2s var(--ease-out);
-}
-.cursor-ring.is-hover {
-  width: 58px;
-  height: 58px;
-  border-color: var(--accent-2);
-  background: var(--accent-2-soft);
-}
-
-/* hide native cursor only on pointer-fine devices that have the trail */
-body.has-cursor-trail {
-  cursor: none;
-}
-body.has-cursor-trail a,
-body.has-cursor-trail button {
-  cursor: none;
-}
-
-/* Safety net: never show the custom cursor on touch / coarse-pointer
-   devices, even if scripting leaves the nodes mounted. */
-@media (hover: none), (pointer: coarse) {
-  .cursor-dot,
-  .cursor-ring {
-    display: none !important;
   }
 }
 
@@ -358,14 +277,5 @@ body.has-cursor-trail button {
   }
   .marquee-track {
     animation: none;
-  }
-  .cursor-dot,
-  .cursor-ring {
-    display: none;
-  }
-  body.has-cursor-trail,
-  body.has-cursor-trail a,
-  body.has-cursor-trail button {
-    cursor: auto;
   }
 }

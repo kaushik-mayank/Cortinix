@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Twitter, Github, Dribbble } from 'lucide-react';
+import { Linkedin, Twitter, Github, Dribbble, MapPin, Mail } from 'lucide-react';
 import services from '../data/services';
 
 const topServices = services.slice(0, 6);
@@ -13,12 +13,33 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/" className="logo">
-              Corti<span className="text-gradient">nix</span>
+              <img
+                className="footer-logo-mark"
+                src="/brand/cortinix-icon-white.png"
+                alt=""
+                aria-hidden="true"
+                width={28}
+                height={33}
+              />
+              <span>
+                Corti<span className="text-gradient">nix</span>
+              </span>
             </Link>
             <p>
               Where human intelligence meets AI precision. We build, scale and automate your entire
               business across 15+ specialized services — so you can focus on growth.
             </p>
+            <div className="footer-address">
+              <MapPin size={16} aria-hidden="true" />
+              <span>
+                6th Floor, WeWork Lightbridge, Saki Vihar Rd, Tunga Village, Chandivali, Powai,
+                Mumbai, Maharashtra 400072
+              </span>
+            </div>
+            <a className="footer-address footer-email" href="mailto:hello@cortinix.com">
+              <Mail size={16} aria-hidden="true" />
+              <span>hello@cortinix.com</span>
+            </a>
           </div>
 
           <div className="footer-col">

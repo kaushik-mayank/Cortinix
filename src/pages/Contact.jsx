@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Mail, Clock, Sparkles, Check } from 'lucide-react';
+import { Mail, Clock, Sparkles, Check, MapPin } from 'lucide-react';
 import { services } from '../data/services.js';
 import GlowButton from '../components/GlowButton.jsx';
 
@@ -22,6 +22,11 @@ const INFO = [
     icon: Mail,
     title: 'Email us',
     body: 'hello@cortinix.com — we reply within one business day.',
+  },
+  {
+    icon: MapPin,
+    title: 'Visit us',
+    body: '6th Floor, WeWork Lightbridge, Saki Vihar Rd, Tunga Village, Chandivali, Powai, Mumbai, Maharashtra 400072.',
   },
   {
     icon: Clock,

@@ -6,7 +6,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
-import CursorTrail from './components/CursorTrail.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -82,7 +81,6 @@ export default function App() {
         Skip to content
       </a>
       <ScrollProgress />
-      <CursorTrail />
       <Navbar />
 
       <main id="main" className="app-main">

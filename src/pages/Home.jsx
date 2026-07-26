@@ -11,7 +11,6 @@ import {
   Quote,
 } from 'lucide-react';
 
-import ParticleField from '../components/ParticleField.jsx';
 import GlowButton from '../components/GlowButton.jsx';
 import AnimatedCounter from '../components/AnimatedCounter.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
@@ -240,7 +239,12 @@ export default function Home() {
     <>
       {/* ── HERO ───────────────────────────────────────── */}
       <section className="hero">
-        <ParticleField nodeCount={54} />
+        <img
+          className="hero-watermark"
+          src="/brand/cortinix-icon.png"
+          alt=""
+          aria-hidden="true"
+        />
         <div className="hero-overlay" aria-hidden="true" />
         <div className="container hero-content">
           <p className="eyebrow">Where human intelligence meets AI precision</p>

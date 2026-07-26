@@ -1,53 +1,58 @@
 /* ============================================================
    Cortinix — Design Tokens
-   Dark-only theme.
+   Light, professional corporate theme built around the brand mark.
    ============================================================ */
 
 :root,
-[data-theme='dark'] {
+[data-theme='light'] {
   /* Surfaces */
-  --bg-primary: #080c14; /* deep space navy */
-  --bg-secondary: #0d1321; /* card surfaces */
-  --bg-tertiary: #11182b; /* raised surfaces */
-  --bg-glass: rgba(255, 255, 255, 0.04); /* glassmorphism panels */
-  --bg-glass-strong: rgba(255, 255, 255, 0.07);
+  --bg-primary: #ffffff; /* page background */
+  --bg-secondary: #f6f7f9; /* card surfaces */
+  --bg-tertiary: #eef1f5; /* raised surfaces */
+  --bg-glass: rgba(11, 31, 58, 0.035); /* subtle panel tint */
+  --bg-glass-strong: rgba(11, 31, 58, 0.06);
+  --bg-inverse: #0b1a30; /* deep navy — footer / inverse sections */
+  --bg-inverse-raised: #12274a;
 
   /* Accents */
-  --accent-1: #6c63ff; /* electric violet — primary CTA */
-  --accent-1-soft: rgba(108, 99, 255, 0.16);
-  --accent-2: #00d4aa; /* mint teal — AI / tech indicators */
-  --accent-2-soft: rgba(0, 212, 170, 0.14);
-  --accent-3: #ff6b6b; /* coral — highlights / warnings */
-  --accent-3-soft: rgba(255, 107, 107, 0.14);
+  --accent-1: #14335c; /* deep navy — primary brand / CTA */
+  --accent-1-soft: rgba(20, 51, 92, 0.08);
+  --accent-2: #35618f; /* slate blue — secondary / AI indicators */
+  --accent-2-soft: rgba(53, 97, 143, 0.08);
+  --accent-3: #7a2e2e; /* muted burgundy — highlights / required marks */
+  --accent-3-soft: rgba(122, 46, 46, 0.08);
 
   /* Text */
-  --text-primary: #f0f4ff;
-  --text-secondary: #c2cbe0;
-  --text-muted: #8892a4;
+  --text-primary: #10151f;
+  --text-secondary: #48505c;
+  --text-muted: #737c88;
+  --text-inverse: #f3f5f8;
+  --text-inverse-muted: #9aa9c0;
 
   /* Lines */
-  --border: rgba(108, 99, 255, 0.2);
-  --border-soft: rgba(255, 255, 255, 0.08);
+  --border: rgba(11, 31, 58, 0.14);
+  --border-soft: rgba(11, 31, 58, 0.08);
+  --border-inverse: rgba(255, 255, 255, 0.14);
 
   /* Effects */
-  --glow-violet: 0 0 40px rgba(108, 99, 255, 0.45);
-  --glow-teal: 0 0 40px rgba(0, 212, 170, 0.35);
-  --shadow-card: 0 24px 60px -28px rgba(0, 0, 0, 0.8);
-  --gradient-brand: linear-gradient(135deg, #6c63ff 0%, #00d4aa 100%);
-  --gradient-warm: linear-gradient(135deg, #6c63ff 0%, #ff6b6b 100%);
-  --gradient-text: linear-gradient(120deg, #f0f4ff 0%, #c4c0ff 40%, #00d4aa 100%);
+  --glow-violet: 0 14px 32px -10px rgba(20, 51, 92, 0.28);
+  --glow-teal: 0 14px 32px -10px rgba(53, 97, 143, 0.22);
+  --shadow-card: 0 24px 55px -32px rgba(10, 20, 40, 0.28);
+  --gradient-brand: linear-gradient(135deg, #14335c 0%, #2c5490 100%);
+  --gradient-warm: linear-gradient(135deg, #14335c 0%, #7a2e2e 100%);
+  --gradient-text: linear-gradient(115deg, #10151f 0%, #14335c 60%, #2c5490 100%);
 
   /* Typography */
-  --font-display: 'Syne', system-ui, sans-serif;
+  --font-display: 'Playfair Display', 'Georgia', serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Type scale (fluid) */
-  --fs-hero: clamp(2.6rem, 6.5vw, 5.5rem);
-  --fs-h1: clamp(2.1rem, 4.5vw, 3.6rem);
-  --fs-h2: clamp(1.7rem, 3.2vw, 2.6rem);
-  --fs-h3: clamp(1.3rem, 2vw, 1.7rem);
-  --fs-lg: 1.18rem;
+  --fs-hero: clamp(2.4rem, 5.8vw, 4.6rem);
+  --fs-h1: clamp(2rem, 4vw, 3.1rem);
+  --fs-h2: clamp(1.6rem, 3vw, 2.3rem);
+  --fs-h3: clamp(1.25rem, 1.9vw, 1.55rem);
+  --fs-lg: 1.15rem;
   --fs-base: 1rem;
   --fs-sm: 0.875rem;
   --fs-xs: 0.78rem;
@@ -55,11 +60,11 @@
   /* Spacing & layout */
   --maxw: 1240px;
   --maxw-narrow: 880px;
-  --radius-sm: 10px;
-  --radius: 16px;
-  --radius-lg: 24px;
-  --radius-pill: 999px;
-  --space-section: clamp(4.5rem, 10vw, 9rem);
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 6px;
+  --space-section: clamp(4rem, 9vw, 7.5rem);
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -69,6 +74,6 @@
   --dur-slow: 0.8s;
 
   /* Misc */
-  --nav-h: 76px;
-  color-scheme: dark;
+  --nav-h: 80px;
+  color-scheme: light;
 }

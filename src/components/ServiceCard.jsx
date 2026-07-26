@@ -23,7 +23,7 @@ export default function ServiceCard({ service, featured = false }) {
     const rect = el.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width - 0.5;
     const py = (e.clientY - rect.top) / rect.height - 0.5;
-    el.style.transform = `perspective(900px) rotateY(${px * 9}deg) rotateX(${-py * 9}deg) translateY(-6px)`;
+    el.style.transform = `perspective(1200px) rotateY(${px * 3}deg) rotateX(${-py * 3}deg) translateY(-4px)`;
   };
 
   const handleLeave = () => {

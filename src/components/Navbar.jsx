@@ -41,9 +41,14 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'is-scrolled' : ''}`}>
       <nav className="navbar-inner container" aria-label="Primary">
         <Link to="/" className="navbar-logo" aria-label="Cortinix home">
-          <span className="logo-mark" aria-hidden="true">
-            C
-          </span>
+          <img
+            className="logo-mark"
+            src="/brand/cortinix-icon.png"
+            alt=""
+            aria-hidden="true"
+            width={34}
+            height={40}
+          />
           <span className="logo-text">
             Corti<span className="text-gradient">nix</span>
           </span>
